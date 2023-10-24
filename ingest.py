@@ -2,7 +2,7 @@
 import logging
 import os
 import re
-from parser import langchain_docs_extractor
+from doc_parser import langchain_docs_extractor
 
 import weaviate
 from bs4 import BeautifulSoup, SoupStrainer
@@ -37,8 +37,8 @@ def metadata_extractor(meta: dict, soup: BeautifulSoup) -> dict:
 
 def load_langchain_docs():
     return SitemapLoader(
-        "https://python.langchain.com/sitemap.xml",
-        filter_urls=["https://python.langchain.com/"],
+        "https://scoutapm.com/docs/sitemap.xml",
+        filter_urls=["https://scoutapm.com/docs"],
         parsing_function=langchain_docs_extractor,
         default_parser="lxml",
         bs_kwargs={
